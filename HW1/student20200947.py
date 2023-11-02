@@ -43,10 +43,6 @@ while cnt < A_students:
 	A_list.append(A_max)
 	A_index_list.append(A_index)
 	cnt += 1
-
-print("A 리스트")
-for a, b in zip(A_index_list, A_list):
-    print(a, b)
     
 cnt = 0
 while cnt < B_students - A_students:
@@ -58,7 +54,7 @@ while cnt < B_students - A_students:
 				if B_max <= t:
 					B_max = t
 					B_index = index
-	if(B_max < 40):
+	if B_max < 40:
 		break
 
 	if cnt == B_students -1 and B_max in B_list:
@@ -72,10 +68,6 @@ while cnt < B_students - A_students:
 	B_index_list.append(B_index)
 	cnt += 1
  
-print("B 리스트")
-for a, b in zip(B_index_list, B_list):
-    print(a, b)
- 
 while 1==1:
 	C_max = 0
 	C_index = -1
@@ -86,26 +78,41 @@ while 1==1:
 					if C_max <= t:
 						C_max = t
 						C_index = index
-	if(C_max < 40):
+	if C_max < 40:
 		break
 	C_list.append(C_max)
 	C_index_list.append(C_index)
  
 for index, a in enumerate(A_index_list):
 	if index < math.trunc(len(A_index_list)/2):
-		ws.cell(row = a + 2, column = 8, value = 'A+')
+		if index == math.trunc(len(A_index_list)/2) - 1 and A_list[index] == A_list[index + 1]:
+			for i, d in enumerate(A_list):
+				if d == A_list[index]:
+					ws.cell(row = A_index_list[i] + 2, column = 8, value = 'A0')
+		else:
+			ws.cell(row = a + 2, column = 8, value = 'A+')
 	else:
 		ws.cell(row = a + 2, column = 8, value = 'A0')
 
 for index, b in enumerate(B_index_list):
 	if index < math.trunc(len(B_index_list)/2):
-		ws.cell(row = b + 2, column = 8, value = 'B+')
+		if index == math.trunc(len(B_index_list)/2) - 1 and B_list[index] == B_list[index + 1]:
+			for i, d in enumerate(B_list):
+				if d == B_list[index]:
+					ws.cell(row = B_index_list[i] + 2, column = 8, value = 'B0')
+		else:
+			ws.cell(row = b + 2, column = 8, value = 'B+')
 	else:
 		ws.cell(row = b + 2, column = 8, value = 'B0')
 
 for index, c in enumerate(C_index_list):
 	if index < math.trunc(len(C_index_list)/2):
-		ws.cell(row = c + 2, column = 8, value = 'C+')
+		if index == math.trunc(len(C_index_list)/2) - 1 and C_list[index] == C_list[index + 1]:
+			for i, d in enumerate(C_list):
+				if d == C_list[index]:
+					ws.cell(row = C_index_list[i] + 2, column = 8, value = 'C0')
+		else:
+			ws.cell(row = c + 2, column = 8, value = 'C+')
 	else:
 		ws.cell(row = c + 2, column = 8, value = 'C0')
 
