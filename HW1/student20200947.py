@@ -12,7 +12,7 @@ total_list = []
 i = 2
 for row in ws.iter_rows(min_row = 2, max_row = ws.max_row):
 	total = float(row[2].value) * 0.3 + float(row[3].value) * 0.35 + float(row[4].value) * 0.34 + float(row[5].value) * 0.01
-	ws.cell(row = row[0].row, column = 6, value = round(total, 2))
+	ws.cell(row = row[0].row, column = 7, value = round(total, 2))
 	total_list.append(round(total, 2))	
 
 A_students = math.trunc((ws.max_row - 2 + 1) * 0.3)
@@ -60,24 +60,24 @@ while 1==1:
 
 for index, a in enumerate(A_list):
 	if index < math.trunc(len(A_list)/2):
-		ws.cell(row = total_list.index(a) + 2, column = 7, value = 'A+')
+		ws.cell(row = total_list.index(a) + 2, column = 8, value = 'A+')
 	else:
-		ws.cell(row = total_list.index(a) + 2, column = 7, value = 'A')
+		ws.cell(row = total_list.index(a) + 2, column = 8, value = 'A')
 
 for index, b in enumerate(B_list):
 	if index < math.trunc(len(B_list)/2):
-		ws.cell(row = total_list.index(b) + 2, column = 7, value = 'B+')
+		ws.cell(row = total_list.index(b) + 2, column = 8, value = 'B+')
 	else:
-		ws.cell(row = total_list.index(b) + 2, column = 7, value = 'B')
+		ws.cell(row = total_list.index(b) + 2, column = 8, value = 'B')
 
 for index, c in enumerate(C_list):
 	if index < math.trunc(len(C_list)/2):
-		ws.cell(row = total_list.index(c) + 2, column = 7, value = 'C+')
+		ws.cell(row = total_list.index(c) + 2, column = 8, value = 'C+')
 	else:
-		ws.cell(row = total_list.index(c) + 2, column = 7, value = 'C')
+		ws.cell(row = total_list.index(c) + 2, column = 8, value = 'C')
 
 for t in total_list:
 	if t < 40:
-		ws.cell(row = total_list.index(t) + 2, column = 7, value = 'F')
+		ws.cell(row = total_list.index(t) + 2, column = 8, value = 'F')
 
 wb.save('student.xlsx')
