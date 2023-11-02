@@ -62,19 +62,19 @@ for index, a in enumerate(A_list):
 	if index < math.trunc(len(A_list)/2):
 		ws.cell(row = total_list.index(a) + 2, column = 8, value = 'A+')
 	else:
-		ws.cell(row = total_list.index(a) + 2, column = 8, value = 'A')
+		ws.cell(row = total_list.index(a) + 2, column = 8, value = 'A0')
 
 for index, b in enumerate(B_list):
 	if index < math.trunc(len(B_list)/2):
 		ws.cell(row = total_list.index(b) + 2, column = 8, value = 'B+')
 	else:
-		ws.cell(row = total_list.index(b) + 2, column = 8, value = 'B')
+		ws.cell(row = total_list.index(b) + 2, column = 8, value = 'B0')
 
 for index, c in enumerate(C_list):
 	if index < math.trunc(len(C_list)/2):
 		ws.cell(row = total_list.index(c) + 2, column = 8, value = 'C+')
 	else:
-		ws.cell(row = total_list.index(c) + 2, column = 8, value = 'C')
+		ws.cell(row = total_list.index(c) + 2, column = 8, value = 'C0')
 
 for t in total_list:
 	if t < 40:
