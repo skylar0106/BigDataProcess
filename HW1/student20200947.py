@@ -80,4 +80,4 @@ for t in total_list:
 	if t < 40:
 		ws.cell(row = total_list.index(t) + 2, column = 8, value = 'F')
 
-wb.save('student2.xlsx')
+wb.save('student.xlsx')
