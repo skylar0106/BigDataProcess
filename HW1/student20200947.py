@@ -7,10 +7,11 @@ wb = load_workbook(filename = 'student.xlsx')
 ws = wb.active
 total_list = []
 
-for row in ws.iter_rows(min_row = 2, max_row = ws.max_row):
-	total = float(row[2].value) * 0.3 + float(row[3].value) * 0.35 + float(row[4].value) * 0.34 + float(row[5].value) * 0.01
-	ws.cell(row = row[0].row, column = 7, value = total)
-	total_list.append(total)	
+for row in ws.iter_rows(min_row = 1, max_row = ws.max_row):
+	if type(row[2].value) != str and type(row[3].value) != str and type(row[4].value) != str and type(row[5].value) != str:
+		total = float(row[2].value) * 0.3 + float(row[3].value) * 0.35 + float(row[4].value) * 0.34 + float(row[5].value) * 0.01
+		ws.cell(row = row[0].row, column = 7, value = total)
+		total_list.append(total)	
  
 A_students = math.trunc((ws.max_row - 2 + 1) * 0.3)
 B_students = math.trunc((ws.max_row - 2 + 1) * 0.7)
