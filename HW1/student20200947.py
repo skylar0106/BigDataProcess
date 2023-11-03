@@ -11,7 +11,7 @@ for row in ws.iter_rows(min_row = 1, max_row = ws.max_row):
 	if type(row[2].value) != str and type(row[3].value) != str and type(row[4].value) != str and type(row[5].value) != str:
 		total = float(row[2].value) * 0.3 + float(row[3].value) * 0.35 + float(row[4].value) * 0.34 + float(row[5].value) * 0.01
 		ws.cell(row = row[0].row, column = 7, value = total)
-		total_list.append(total)	
+		total_list.append(total)
  
 A_students = math.trunc((ws.max_row - 2 + 1) * 0.3)
 B_students = math.trunc((ws.max_row - 2 + 1) * 0.7)
@@ -117,8 +117,8 @@ for index, c in enumerate(C_index_list):
 	else:
 		ws.cell(row = c + 2, column = 8, value = 'C0')
 
-for t in total_list:
+for i, t in enumerate(total_list):
 	if t < 40:
-		ws.cell(row = total_list.index(t) + 2, column = 8, value = 'F')
+		ws.cell(row = i + 2, column = 8, value = 'F')
   
 wb.save('student.xlsx')
