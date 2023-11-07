@@ -19,15 +19,15 @@ genre = list(set(genre))
 genre_dict = {}
 
 for g in genre:
-    genre_dict[g] = 0
-print(genre_dict)
+    genre_dict[g] = [0, 0]
     
 for g in genre_dict:
     with open(input_file) as file:
         for line in file:
             if g in line:
-                genre_dict[g] += int(line.split("::")[0])
+                genre_dict[g][0] += int(line.split("::")[0])
+                genre_dict[g][1] += 1
                         
 with open(output_file, "w", encoding="utf-8") as file:
     for g in genre_dict:
-        file.write("{} {}\n".format(g, genre_dict[g]))
+        file.write("{} {}\n".format(g, genre_dict[g][1]))
