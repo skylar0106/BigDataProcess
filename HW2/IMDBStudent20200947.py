@@ -8,26 +8,21 @@ genre = []
 
 with open(input_file) as file:
     for line in file:
-        cnt = 1
-        for i in line.split("::"):
-            if cnt % 3 == 0:
-                for g in i.split("|"):
-                    genre.append(g.rstrip("\n"))
-            cnt += 1
+        i = line.split("::")
+        for g in i[2].split("|"):
+            genre.append(g.rstrip("\n"))
             
-genre = list(set(genre))
 genre_dict = {}
 
 for g in genre:
-    genre_dict[g] = [0, 0]
+    genre_dict[g] = 0
     
 for g in genre_dict:
     with open(input_file) as file:
         for line in file:
             if g in line:
-                genre_dict[g][0] += int(line.split("::")[0])
-                genre_dict[g][1] += 1
+                genre_dict[g] += 1
                         
 with open(output_file, "w", encoding="utf-8") as file:
     for g in genre_dict:
-        file.write("{} {}\n".format(g, genre_dict[g][1]))
+        file.write("{} {}\n".format(g, genre_dict[g]))
