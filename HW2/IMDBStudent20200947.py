@@ -4,6 +4,7 @@ import sys
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
+
 genre = []
 
 with open(input_file) as file:
@@ -27,6 +28,6 @@ with open(input_file) as file:
             if g in line:
                 genre_dict[g] += 1
                         
-with open(output_file, "w", encoding="utf-8") as file:
+with open(output_file, "wt") as file:
     for g in genre_dict:
         file.write("{} {}\n".format(g, genre_dict[g]))
