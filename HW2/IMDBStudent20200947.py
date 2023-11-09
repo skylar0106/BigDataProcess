@@ -6,25 +6,18 @@ input_file = sys.argv[1]
 output_file = sys.argv[2]
 
 genre = []
+genre_dict = dict()
 
 with open(input_file) as file:
     for line in file:
-        i = line.split("::")
-        i[2] = i[2].rstrip("\n")
-        
-        for g in i[2].split("|"):
-            genre.append(g)
-            
-genre_dict = {}
-
-for g in genre:
-    genre_dict[g] = 0
-    
-with open(input_file) as file:
-    for line in file:
-        for g in genre_dict:
-            if g in line:
-                genre_dict[g] += 1
+        l = line.split("::")
+        l[2] = l[2].rstrip("\n")
+        genre = l[2].split("|")
+        for i in genre:
+            if i in genre_dict:
+                genre_dict[i] += 1
+            else:
+                genre_dict[i] = 1
                         
 with open(output_file, "wt") as file:
     for g in genre_dict:
