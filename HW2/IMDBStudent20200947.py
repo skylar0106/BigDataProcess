@@ -10,12 +10,10 @@ genre = []
 with open(input_file) as file:
     for line in file:
         i = line.split("::")
-        gen = i[2].split("|")
-        for g in gen:
-            if "\n" in g:
-                genre.append(g.rstrip("\n"))
-            else:
-                genre.append(g)
+        i[2] = i[2].rstrip("\n")
+        
+        for g in i[2].split("|"):
+            genre.append(g)
             
 genre_dict = {}
 
